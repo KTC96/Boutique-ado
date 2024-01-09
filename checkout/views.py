@@ -3,16 +3,12 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
-from bag.contexts import bag_contents
-import stripe
-
-from products.models import Product
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from products.models import Product
+from bag.contexts import bag_contents
 
-
-
-
+import stripe
 import json
 
 @require_POST
