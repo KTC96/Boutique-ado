@@ -1,3 +1,6 @@
+import os
+
+
 """
 Django settings for boutique_ado project.
 
@@ -10,7 +13,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
-import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -170,6 +172,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY','')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY','')
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET','')
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
