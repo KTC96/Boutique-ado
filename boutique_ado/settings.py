@@ -11,8 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from env import *
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -28,7 +26,6 @@ SECRET_KEY = 'p@ei#69*b*zz3u4yie-$()@cy^l(+x9&@6ypx+r0lm(3%_9hr7'
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-ktc96-boutiqueado-93cyyeh50ff.ws-eu107.gitpod.io']
-
 
 # Application definition
 
@@ -48,8 +45,9 @@ INSTALLED_APPS = [
     'bag',
     'checkout',
     'profiles',
+
+    # Other
     'crispy_forms',
-    
 ]
 
 MIDDLEWARE = [
@@ -81,7 +79,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                'bag.contexts.bag_contents'
+                'bag.contexts.bag_contents',
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',
@@ -169,13 +167,11 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 # Stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.environ['STRIPE_PUBLIC_KEY']
-STRIPE_SECRET_KEY = os.environ['STRIPE_SECRET_KEY']
-STRIPE_WH_SECRET = os.environ['STRIPE_WH_SECRET']
-
-
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
