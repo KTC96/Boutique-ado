@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Sitemap: https://boutique-ado-kyle-ac7dcd056efb.herokuapp.com/sitemap.xml
